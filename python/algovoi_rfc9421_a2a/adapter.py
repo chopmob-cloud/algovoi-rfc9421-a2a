@@ -44,8 +44,11 @@ DEFAULT_TAG = "a2a-signature-v1"
 #: A2A 1.0.1 preferred media type (#1753). Content-Digest is over these body bytes.
 A2A_MEDIA_TYPE = "application/a2a+json"
 
-#: Covered components for an A2A JSON-RPC request, matching the #1829 shape.
-DEFAULT_COVERED = ["@method", "@path", "content-digest", "created"]
+#: Covered components for an A2A JSON-RPC request, matching the #1829 shape:
+#: @method, @path, content-digest. `created` rides as a signature parameter (it
+#: is signed via @signature-params in rfc9421 mode), so freshness can be enforced
+#: on it without listing it as a component. Requires verifier >= 0.4.1.
+DEFAULT_COVERED = ["@method", "@path", "content-digest"]
 
 
 class A2ASignatureError(ValueError):

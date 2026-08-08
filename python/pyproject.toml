@@ -22,7 +22,7 @@ classifiers = [
 requires-python = ">=3.10"
 dependencies = [
     "algovoi-rfc9421-signer>=0.2.1",
-    "algovoi-rfc9421-verifier>=0.4.0",
+    "algovoi-rfc9421-verifier>=0.4.1",
     "algovoi-rfc9421-keyid>=0.1.0",
 ]
 
