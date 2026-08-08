@@ -1,0 +1,30 @@
+{
+  "name": "rfc9421_negative_v0",
+  "description": "Negative (must-reject) conformance vectors for the A2A per-message signature extension v1, plus one positive control. Reproducible from the RFC 8032 section 7.1 keypair; run with verify.py.",
+  "keypair": {
+    "seed_hex": "9d61b19deffd5a60ba844af492ec2cc44449c5697b326919703bac031cae3d55",
+    "public_key_hex": "700e2ce7c4b674427eab27ba820bcf6f0faebe68e09fe8564292114e41dc6a41",
+    "keyid": "did:key:z6MkmzgF8XmXcQnJ4ZiCv2rXfAz1njvvTXWtqFhgFmHaAQCG"
+  },
+  "baseline": {
+    "method": "POST",
+    "authority": "api.algovoi.co.uk",
+    "path": "/a2a/rpc",
+    "created": 1778955520,
+    "verify_now": 1778955525,
+    "tag": "a2a-signature-v1"
+  },
+  "cases": [
+    { "name": "valid_control", "expect_valid": true, "note": "known-good; proves the runner is not vacuously failing everything" },
+    { "name": "tampered_body", "expect_valid": false, "error_contains": "digest", "note": "body altered after signing" },
+    { "name": "expired", "expect_valid": false, "error_contains": "age", "note": "created older than max_age_seconds" },
+    { "name": "wrong_tag", "expect_valid": false, "error_contains": "tag", "note": "verifier expects a different tag" },
+    { "name": "absent_alg", "expect_valid": false, "error_contains": "alg", "note": "alg parameter stripped (downgrade by omission)" },
+    { "name": "disallowed_alg", "expect_valid": false, "error_contains": "not in the allowed set", "note": "alg not in verifier allow-list" },
+    { "name": "wrong_keyid", "expect_valid": false, "error_contains": "does not match expected", "note": "keyid not the expected one; must reject before resolving" },
+    { "name": "malformed_signature_input", "expect_valid": false, "error_contains": "malformed", "note": "unparseable Signature-Input must fail closed, not raise" },
+    { "name": "no_extension_activation", "expect_valid": false, "error_contains": "not activated", "note": "A2A-Extensions header absent" },
+    { "name": "replayed_nonce", "expect_valid": false, "error_contains": "replay", "note": "nonce already seen for this keyid" },
+    { "name": "missing_content_digest_coverage", "expect_valid": false, "error_contains": "content-digest", "note": "content-digest present but not a covered component" }
+  ]
+}
