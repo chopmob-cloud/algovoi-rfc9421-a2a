@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "algovoi-rfc9421-a2a"
+version = "0.1.0"
+description = "A2A per-message signing adapter binding the AlgoVoi RFC 9421 signer/verifier/keyid resolver to the A2A message envelope"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "AlgoVoi", email = "chopmob@gmail.com" }]
+keywords = ["a2a", "rfc9421", "rfc9530", "http-signatures", "ed25519", "agentic-payments"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security :: Cryptography",
+    "Topic :: Internet :: WWW/HTTP",
+]
+requires-python = ">=3.10"
+dependencies = [
+    "algovoi-rfc9421-signer>=0.2.1",
+    "algovoi-rfc9421-verifier>=0.4.0",
+    "algovoi-rfc9421-keyid>=0.1.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/chopmob-cloud/algovoi-rfc9421-a2a"
+Repository = "https://github.com/chopmob-cloud/algovoi-rfc9421-a2a"
+
+[tool.hatch.build.targets.wheel]
+packages = ["algovoi_rfc9421_a2a"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

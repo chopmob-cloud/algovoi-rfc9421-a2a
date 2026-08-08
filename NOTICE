@@ -1,0 +1,13 @@
+AlgoVoi RFC 9421 A2A Adapter
+Copyright 2026 Christopher Hopley / AlgoVoi (chopmob-cloud)
+
+This product includes software authored by Christopher Hopley (AlgoVoi),
+licensed under the Apache License, Version 2.0.
+
+It binds the AlgoVoi RFC 9421 signer, verifier, and keyid resolver to the A2A
+per-message signing extension. It composes with, and does not replace, A2A
+AgentCard signing (spec 8.4). Companion to the algovoi-rfc9421-verifier,
+algovoi-rfc9421-signer, and algovoi-rfc9421-keyid packages.
+
+When redistributing this work or derivative works, retain this NOTICE per
+Apache License, Version 2.0, Section 4(d).
