@@ -1,6 +1,5 @@
 # algovoi-rfc9421-a2a
 
-
 [![PyPI](https://img.shields.io/pypi/v/algovoi-rfc9421-a2a)](https://pypi.org/project/algovoi-rfc9421-a2a/) [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
 
 A2A per-message signing adapter binding the AlgoVoi RFC 9421 signer, verifier,
