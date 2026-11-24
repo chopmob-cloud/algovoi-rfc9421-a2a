@@ -1,5 +1,8 @@
 # algovoi-rfc9421-a2a
 
+
+[![PyPI](https://img.shields.io/pypi/v/algovoi-rfc9421-a2a)](https://pypi.org/project/algovoi-rfc9421-a2a/)
+
 A2A per-message signing adapter binding the AlgoVoi RFC 9421 signer, verifier,
 and keyid resolver to the A2A message envelope. Thin glue over three shipped,
 hardened primitives; no new cryptography.
